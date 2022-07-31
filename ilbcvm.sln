@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_rt", "ilbcvm_RT\ilbc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_cc", "ilbcvm-cc\ilbcvm_cc.csproj", "{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_mon", "ilbcvm-mon\ilbcvm_mon.csproj", "{E192B084-1EBB-465E-BF11-8F4CD746C5CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_mon", "ilbcvm_mon\ilbcvm_mon.csproj", "{E192B084-1EBB-465E-BF11-8F4CD746C5CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
