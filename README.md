@@ -5,8 +5,11 @@
 ## ilbcvm
 The main virtual machine which executes programs written in the ilbcvm byte code format
 
-## ilbcvm-rt
-Main implementation of the ilbcvm runtime
+## ilbcvm_rt
+.NET C# Implementation of the ilbcvm runtime
 
-## ilbcvm-cc
-Main implementation of the ilbcvm compiler & decompiler
+## ilbcvm_cc
+Standard implementation of the ilbcvm compiler & decompiler
+
+## ilbcvm_mon
+Machine code monitor for ILBCVM
