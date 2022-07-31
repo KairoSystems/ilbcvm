@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm", "ilbcvm\ilbcvm.csproj", "{3BF56341-0404-4769-999D-081D669B2F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm", "ilbcvm\ilbcvm.csproj", "{3BF56341-0404-4769-999D-081D669B2F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_rt", "ilbcvm_RT\ilbcvm_rt.csproj", "{37F139DF-4E4B-4AA2-BDBB-EDF9A113E1D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_rt", "ilbcvm_RT\ilbcvm_rt.csproj", "{37F139DF-4E4B-4AA2-BDBB-EDF9A113E1D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_cc", "ilbcvm-cc\ilbcvm_cc.csproj", "{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_cc", "ilbcvm-cc\ilbcvm_cc.csproj", "{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_mon", "ilbcvm-mon\ilbcvm_mon.csproj", "{E192B084-1EBB-465E-BF11-8F4CD746C5CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E192B084-1EBB-465E-BF11-8F4CD746C5CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E192B084-1EBB-465E-BF11-8F4CD746C5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E192B084-1EBB-465E-BF11-8F4CD746C5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E192B084-1EBB-465E-BF11-8F4CD746C5CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
