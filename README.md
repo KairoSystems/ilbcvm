@@ -13,3 +13,6 @@ Standard implementation of the ilbcvm compiler & decompiler
 
 ## ilbcvm_mon
 Machine code monitor for ILBCVM
+
+## ilbcvm_dbg
+Instruction stepping debugger for ILBCVM executables
