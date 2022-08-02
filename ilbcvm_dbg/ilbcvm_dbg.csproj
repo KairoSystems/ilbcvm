@@ -10,9 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ilbcvm-cc\ilbcvm_cc.csproj" />
+    <ProjectReference Include="..\ilbcvm_cc\ilbcvm_cc.csproj" />
     <ProjectReference Include="..\ilbcvm\ilbcvm.csproj" />
-    <ProjectReference Include="..\ilbcvm_RT\ilbcvm_rt.csproj" />
+    <ProjectReference Include="..\ilbcvm_rt\ilbcvm_rt.csproj" />
   </ItemGroup>
 
 </Project>

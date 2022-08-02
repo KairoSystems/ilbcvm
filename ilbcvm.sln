@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm", "ilbcvm\ilbcvm.csproj", "{3BF56341-0404-4769-999D-081D669B2F66}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_rt", "ilbcvm_RT\ilbcvm_rt.csproj", "{37F139DF-4E4B-4AA2-BDBB-EDF9A113E1D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_rt", "ilbcvm_rt\ilbcvm_rt.csproj", "{37F139DF-4E4B-4AA2-BDBB-EDF9A113E1D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_cc", "ilbcvm-cc\ilbcvm_cc.csproj", "{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_cc", "ilbcvm_cc\ilbcvm_cc.csproj", "{AC3D1600-739F-4DF4-8B2B-C4C52962CEE8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilbcvm_mon", "ilbcvm_mon\ilbcvm_mon.csproj", "{E192B084-1EBB-465E-BF11-8F4CD746C5CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm-dbg", "ilbcvm-dbg\ilbcvm-dbg.csproj", "{FAFD17AE-85B1-4C5A-ADE6-5720D286C6E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilbcvm_dbg", "ilbcvm_dbg\ilbcvm_dbg.csproj", "{FAFD17AE-85B1-4C5A-ADE6-5720D286C6E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
