@@ -25,7 +25,7 @@ namespace ilbcvm
                 if (!(parameters[1] > 0xEF))
                 {
                     //Not a register, throw an error
-                    throw new Exception("[CRITICAL ERROR] The value at " + (IP + 1) + "(" + parameters[1] + ") does not refer to a register.");
+                    throw new Exception("[CRITICAL ERROR] The value at " + (IP + 1).ToString("X2") + "(" + parameters[1].ToString("X2") + ") does not refer to a register.");
                 }
                 if (opMode == AddressMode.RegVal)
                 {
@@ -33,12 +33,13 @@ namespace ilbcvm
                     parameters[2] = Get32BitParameter(IP + 2);
                     SetRegister((byte)parameters[1], parameters[2]);
 #if DEBUG
-                    RuntimeOptions.console.WriteLine("MOV " + parameters[1].ToString() + " " + parameters[2].ToString() + "  : " + AL.ToString());
+                    RuntimeOptions.console.WriteLine("MOV " + parameters[1].ToString("X2") + " " + parameters[2].ToString("X2") + "  : " + AL.ToString("X2"));
 #endif
                 }
                 else if (opMode == AddressMode.RegReg)
                 {
                     // Parameter 2: Register, set the register to the value in the second register
+                    RuntimeOptions.console.WriteLine("MOV REG " + (ram.memory[(IP + 2)].ToString("X2") + " into " + (parameters[1].ToString("X2"))));
                     parameters[2] = GetRegister(ram.memory[(IP + 2)]);
                     SetRegister((byte)parameters[1], parameters[2]);
                 }

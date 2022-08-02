@@ -4,7 +4,7 @@ namespace ilbcvm_cc
 {
     public class Program
     {
-        private static bool UseBuiltinExe = true;
+        private static bool UseBuiltinExe = false;
 
         public static byte[] HelloWorld =
         {
@@ -54,7 +54,6 @@ namespace ilbcvm_cc
         /// </summary>
         private static string FilePath = "";
 
-        private static FileInfo FI;
         public static void Main(string[] args)
         {
             if (UseBuiltinExe == true)
@@ -66,107 +65,98 @@ namespace ilbcvm_cc
             }
             if (args.Length == 0)
             {
-                Console.WriteLine("Usage: -d to decompile a .ila executable\n<source file> to compile a .lsf source file");
+                Console.WriteLine("Usage:\t-d <executable.path> <output.path> to decompile a .ilbcvm executable\n\t-c <source.path> <output.path> to compile a .ilbcvs source file");
+                Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey(true);
             }
             else if (args[0] == "-d")
             {
-                if (args[0] != "")
+                if (args[1] != null || args[1] != "")
                 {
                     Decompiler Decompiler = new Decompiler(File.ReadAllBytes(args[1]));
                     string SourceCode = Decompiler.Decompile();
-                    File.WriteAllText(args[1] + ".lsf", SourceCode);
+                    string outpath;
+                    if (args[2] != null || args[2] != "")
+                    {
+                        outpath = args[2];
+                    }
+                    else
+                    {
+                        outpath = args[1].Replace(".ilbcvm", ".ilbcvs");
+                    }
+                    File.WriteAllText(outpath + ".ilbcvs", SourceCode);
+                }
+                else
+                {
+                    Console.WriteLine("No file specified to decompile into ILBCVM Source");
+                }
+            }
+            else if (args[0] == "-c")
+            {
+                if (args[1] != null || args[1] != "")
+                {
+                    if (args[2] != null | args[2] != "")
+                    {
+                        Compile(args[1], args[2]);
+                    }
+                    else
+                    {
+                        Compile(args[1], args[1].Replace(".ilbcvs", ".ilbcvm"));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No file specified to compile into ILBCVM Executable");
                 }
             }
             else
             {
-                #region Compile
-                // While loop checks for a valid filename
-                bool ValidFilename = false;
-                while (ValidFilename == false)
-                {
-                    if (args.Length == 1)
-                    {
-                        if (args[0].Length <= 6 && args[0].EndsWith(".lsf"))
-                        {
-                            FilePath = args[0];
-                            FI = null;
-                            try
-                            {
-                                FI = new FileInfo(FilePath);
-                                // If a valid filename for source was passed to the compiler via command line arguments
-                                ValidFilename = true;
-                            }
-                            catch (Exception)
-                            {
-                                // If an invalid filename was passed, ask for another...
-                                Console.WriteLine("Please enter a valid filename for source to be compiled:");
-                                FilePath = Console.ReadLine();
-                                // Go back to beginning of loop...
-                            }
-                        }
-                    }
-                    // If no command line arguments were passed...
-                    else
-                    {
-                        FileInfo FI = null;
-                        try
-                        {
-                            if (FilePath != "" && (FilePath.Length <= 6 && FilePath.EndsWith(".lsf")))
-                            {
-                                FI = new FileInfo(FilePath);
-                                ValidFilename = true;
-                            }
-                            else
-                            {
-                                throw new Exception();
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Please enter a valid filename for source to be compiled:");
-                            FilePath = Console.ReadLine();
-                        }
-
-
-                        ValidFilename = true;
-                    }
-                }
-
-                byte[] VMExecutable = null;
-                string SourceCode = File.ReadAllText(FilePath);
-                Compiler CompiledSource = new Compiler(SourceCode);
-                try
-                {
-                    Console.WriteLine("Compiling...");
-                    VMExecutable = CompiledSource.Compile();
-                    Console.WriteLine("Please enter where you'd like to save the compiled executable: (Must end in .ila - will add automatically if not added)");
-                    string path = Console.ReadLine();
-                    // If the path doesn't end in a .ila extension, add it
-                    if (!path.EndsWith(".ila"))
-                    {
-                        path += ".ila";
-                    }
-                    File.WriteAllBytes(path, VMExecutable);
-                }
-                catch (BuildException ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("[ERROR]" + ex.Message);
-                    Console.WriteLine("Error occured at: " + ex.SrcLineNumber);
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\nPress any key to continue...");
-                    Console.ReadKey(true);
-                }
-                catch (Exception ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("[ERROR]" + ex.Message);
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\nPress any key to continue...");
-                    Console.ReadKey(true);
-                }
-                #endregion
+                Console.WriteLine("Usage:\t-d <executable.path> <output.path> to decompile a .ilbcvm executable\n\t-c <source.path> <output.path> to compile a .ilbcvs source file");
+                Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey(true);
             }
+        }
+
+        private static void Compile(string input, string output)
+        {
+            #region Compile
+
+
+
+            byte[] VMExecutable = null;
+            string SourceCode = File.ReadAllText(FilePath);
+            Compiler CompiledSource = new Compiler(SourceCode);
+            try
+            {
+                Console.WriteLine("Compiling...");
+                VMExecutable = CompiledSource.Compile();
+                Console.WriteLine("Please enter where you'd like to save the compiled executable: (Must end in .ilbcvm - will add automatically if not added)");
+                string path = Console.ReadLine();
+                // If the path doesn't end in a .ila extension, add it
+                if (!path.EndsWith(".ilbcvm"))
+                {
+                    path += ".ilbcvm";
+                }
+                File.WriteAllBytes(path, VMExecutable);
+            }
+            catch (BuildException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("[ERROR]" + ex.Message);
+                Console.WriteLine("Error occured at: " + ex.SrcLineNumber);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey(true);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("[ERROR]" + ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey(true);
+            }
+            #endregion
         }
     }
 }

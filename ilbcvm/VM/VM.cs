@@ -67,9 +67,7 @@ namespace ilbcvm
             //SoftwareInterrupts.ParentVM = this;
             //Loads the executable into the Virtual Machine's memory through LoadApplication()
             LoadApplication(executable);
-        }
-
-        
+        }     
 
         /// <summary>
         /// Executes the binary loaded into the Virtual Machine's memory

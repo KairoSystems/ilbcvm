@@ -17,6 +17,7 @@ namespace ilbcvm
 		{
 			for (int i = 0; i < content.Length; i++)
 			{
+				Globals.RuntimeOptions.console.WriteLine("Set Location: " + location.ToString("X2") + " Content: " + content[i].ToString("X2"));
 				memory[(i + location)] = content[i];
 			}
 		}
@@ -32,6 +33,7 @@ namespace ilbcvm
 			byte[] ret = new byte[length];
 			for (int i = 0; i < length; i++)
 			{
+				Globals.RuntimeOptions.console.WriteLine("Get Location: " + location.ToString("X2") + " Content: " + memory[(location + i)].ToString("X2"));
 				ret[i] = memory[(location + i)];
 			}
 			return ret;
@@ -43,13 +45,19 @@ namespace ilbcvm
 		/// <param name="content"></param>
 		public void SetByte(int location, byte content)
 		{
+			Globals.RuntimeOptions.console.WriteLine("Set Location: " + location.ToString("X2") + " Content: " + content.ToString("X2"));
 			if (location > RAMLimit)
 			{
 				memory[location] = content;
 			}
 			else
 			{
+#if DEBUG
+				//Globals.RuntimeOptions.console.WriteLine("FATAL RAM ERROR AT " + memory[location]);
+				Globals.RuntimeOptions.console.WriteLine("FATAL RAM ERROR");
+#else
 				throw new Exception("The application tried to modify itself and was terminated. Consult the application vendor for more support.");
+#endif
 			}
 		}
 		/// <summary>

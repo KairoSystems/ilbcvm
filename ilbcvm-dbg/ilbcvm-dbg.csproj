@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>ilbcvm_dbg</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ilbcvm-cc\ilbcvm_cc.csproj" />
+    <ProjectReference Include="..\ilbcvm\ilbcvm.csproj" />
+    <ProjectReference Include="..\ilbcvm_RT\ilbcvm_rt.csproj" />
+  </ItemGroup>
+
+</Project>
